@@ -46,3 +46,11 @@ banner
 ### Update dotfiles, if not disabled.
 [[ -v SKIP_UPDATE ]] && \
 ( git -C "$HOME" pull --ff-only > /dev/null ) &
+
+## Session management.
+alias session-tui="/home/notarin/session-tui/target/release/session_tui"
+if [[ $- == *i* ]] && ! [[ -v ZELLIJ ]] && [[ -v DISPLAY ]]; then
+	export ENTRY=true
+	sleep 10 &
+	session-tui --multiplexer zellij; exit
+fi
