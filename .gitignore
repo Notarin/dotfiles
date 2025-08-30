@@ -5,6 +5,7 @@
 .*
 
 #exceptions
+!README.md
 !.gitignore
 !.gitattributes
 !.git/**
